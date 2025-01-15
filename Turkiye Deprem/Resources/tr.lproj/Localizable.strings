@@ -8,3 +8,13 @@
 
 "AppName" = "Türkiye Deprem";
 "Search" = "Arama";
+"EarthquakeDetail" = "Deprem Detayı";
+"EarthquakeLocation" = "Deprem Konumu";
+"Location" = "Konum";
+"Date" = "Tarih";
+"Depth" = "Derinlik";
+"Clock" = "Saat";
+"Magnitude" = "Şiddet";
+"NotEarthquakeData" = "Deprem Verisi Yok";
+"Map" = "Harita";
+"AnArrorOccurred" = "Bir hata oluştu";

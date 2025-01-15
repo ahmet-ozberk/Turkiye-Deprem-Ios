@@ -16,7 +16,7 @@ struct EarthquakeDetailCard: View {
         VStack(spacing: 4) {
             // Location Card
             DetailDataCard(
-                title: "Konum",
+                title: "Location",
                 value: deprem.yer,
                 icon: "mappin.circle",
                 iconColor: AppColors.errorColor,
@@ -26,7 +26,7 @@ struct EarthquakeDetailCard: View {
             // Date and Depth Row
             HStack(spacing: 4) {
                 DetailDataCard(
-                    title: "Tarih",
+                    title: "Date",
                     value: deprem.tarih,
                     icon: "calendar",
                     iconColor: AppColors.primaryColor
@@ -34,7 +34,7 @@ struct EarthquakeDetailCard: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 
                 DetailDataCard(
-                    title: "Derinlik",
+                    title: "Depth",
                     value: "\(deprem.derinlik) km",
                     icon: "arrow.down.circle",
                     iconColor: AppColors.secondaryColor
@@ -45,7 +45,7 @@ struct EarthquakeDetailCard: View {
             // Time and Magnitude Row
             HStack(spacing: 4) {
                 DetailDataCard(
-                    title: "Saat",
+                    title: "Clock",
                     value: deprem.saat,
                     icon: "clock",
                     iconColor: AppColors.accentColor
@@ -53,7 +53,7 @@ struct EarthquakeDetailCard: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 
                 DetailDataCard(
-                    title: "Büyüklük",
+                    title: "Magnitude",
                     value: String(format: "%.1f", deprem.buyukluk),
                     icon: "waveform.path.ecg",
                     iconColor: AppColors.errorColor

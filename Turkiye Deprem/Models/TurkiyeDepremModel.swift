@@ -5,7 +5,7 @@
 //  Created by Ahmet OZBERK on 13.01.2025.
 //
 
-struct TurkiyeDepremModel: Identifiable {
+struct TurkiyeDepremModel: Identifiable, Equatable {
     let id: Int
     let tarih: String
     let saat: String
