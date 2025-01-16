@@ -5,7 +5,6 @@
 //  Created by Ahmet OZBERK on 15.01.2025.
 //
 
-
 import SwiftUI
 
 extension View {
@@ -18,5 +17,22 @@ extension View {
                     .combined(with: .opacity)
             )
         )
+    }
+
+    func startWhistle() {
+        // Önce bildirim izni iste
+        UNUserNotificationCenter.current().requestAuthorization(options: [
+            .alert, .sound, .badge,
+        ]) { granted, error in
+            if granted {
+                DispatchQueue.main.async {
+                    WhistleService.shared.startWhistle()
+                }
+            }
+        }
+    }
+
+    func stopWhistle() {
+        WhistleService.shared.stopWhistle()
     }
 }

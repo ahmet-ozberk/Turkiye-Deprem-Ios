@@ -33,7 +33,7 @@ struct DetailView: View {
                 MapCamera(
                     centerCoordinate: CLLocationCoordinate2D(
                         latitude: lat, longitude: long),
-                    distance: 125000,
+                    distance: Constants.defaultDistance,
                     heading: 0,
                     pitch: 0
                 )

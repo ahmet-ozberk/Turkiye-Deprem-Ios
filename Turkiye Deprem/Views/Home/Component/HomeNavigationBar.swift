@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HomeNavigationBar: View {
     @Binding var searchText: String
     @Binding var isSearching: Bool
     @FocusState private var focusState: Bool
+    @State private var isWhistle: Bool = false
 
     var body: some View {
         HStack {
@@ -50,14 +52,25 @@ struct HomeNavigationBar: View {
             Button(action: {
                 isSearching.toggle()
                 focusState = isSearching
-                if !isSearching {
-                    searchText = ""
-                }
+                if !isSearching { searchText = ""}
             }) {
-                Image(
-                    systemName: isSearching
-                        ? "xmark" : "magnifyingglass"
+                Image(systemName: isSearching
+                        ? "xmark" : "magnifyingglass")
+                .resizable()
+                .frame(
+                    width: isSearching ? 14 : 18,
+                    height: isSearching ? 14 : 18,
+                    alignment: .center
                 )
+                .foregroundStyle(AppColors.textColorPrimary)
+            }
+            Spacer().frame(width: 12)
+            Button(action: {
+                isWhistle.toggle()
+                isWhistle ? startNotification() : stopNotification()
+            }) {
+                Image(isWhistle
+                        ? "stop" : "whistle")
                 .resizable()
                 .frame(
                     width: isSearching ? 14 : 18,
@@ -71,4 +84,17 @@ struct HomeNavigationBar: View {
         .padding(.horizontal, 16)
         .frame(height: 44)
     }
+    
+    private func startNotification(){
+        startWhistle()
+    }
+    
+    private func stopNotification(){
+        stopWhistle()
+    }
+
+}
+
+#Preview {
+    HomeView()
 }

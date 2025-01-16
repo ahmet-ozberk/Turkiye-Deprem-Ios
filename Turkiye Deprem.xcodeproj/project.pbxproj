@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E397B5232D38F141002E903D /* sos_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E397B5222D38F141002E903D /* sos_sound.mp3 */; };
 		E3C85A752D35A29C0098FDC1 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = E3C85A742D35A29C0098FDC1 /* SwiftSoup */; };
 		E3C85AA52D3686670098FDC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E3C85AA42D3686670098FDC1 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E397B5222D38F141002E903D /* sos_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sos_sound.mp3; sourceTree = "<group>"; };
 		E3C85A602D35A0B40098FDC1 /* Turkiye Deprem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turkiye Deprem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 		E3C85A572D35A0B40098FDC1 = {
 			isa = PBXGroup;
 			children = (
+				E397B5222D38F141002E903D /* sos_sound.mp3 */,
 				E3C85A622D35A0B40098FDC1 /* Turkiye Deprem */,
 				E3C85A612D35A0B40098FDC1 /* Products */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E397B5232D38F141002E903D /* sos_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

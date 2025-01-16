@@ -11,4 +11,6 @@ struct Constants {
     static let trLat = 39.4380
     static let trLon = 35.0528
     static let trDistance:Double = 6800000
+    
+    static let defaultDistance:Double = 125000
 }
