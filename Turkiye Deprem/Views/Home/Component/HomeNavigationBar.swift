@@ -52,14 +52,16 @@ struct HomeNavigationBar: View {
             Button(action: {
                 isSearching.toggle()
                 focusState = isSearching
-                if !isSearching { searchText = ""}
+                if !isSearching { searchText = "" }
             }) {
-                Image(systemName: isSearching
-                        ? "xmark" : "magnifyingglass")
+                Image(
+                    systemName: isSearching
+                        ? "xmark" : "magnifyingglass"
+                )
                 .resizable()
                 .frame(
-                    width: isSearching ? 14 : 18,
-                    height: isSearching ? 14 : 18,
+                    width: 16,
+                    height: 16,
                     alignment: .center
                 )
                 .foregroundStyle(AppColors.textColorPrimary)
@@ -69,12 +71,14 @@ struct HomeNavigationBar: View {
                 isWhistle.toggle()
                 isWhistle ? startNotification() : stopNotification()
             }) {
-                Image(isWhistle
-                        ? "stop" : "whistle")
+                Image(
+                    isWhistle
+                        ? "stop" : "whistle"
+                )
                 .resizable()
                 .frame(
-                    width: isSearching ? 14 : 18,
-                    height: isSearching ? 14 : 18,
+                    width: 18,
+                    height: 18,
                     alignment: .center
                 )
                 .foregroundStyle(AppColors.textColorPrimary)
@@ -84,12 +88,12 @@ struct HomeNavigationBar: View {
         .padding(.horizontal, 16)
         .frame(height: 44)
     }
-    
-    private func startNotification(){
+
+    private func startNotification() {
         startWhistle()
     }
-    
-    private func stopNotification(){
+
+    private func stopNotification() {
         stopWhistle()
     }
 

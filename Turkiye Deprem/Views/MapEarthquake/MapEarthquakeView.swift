@@ -29,6 +29,7 @@ struct MapEarthquakeView: View {
     @State private var visibleRegion: MKCoordinateRegion?
     @State private var selectedDeprem: TurkiyeDepremModel?  // Seçili cluster
     @State private var showingDetail: Bool = false  // BottomSheet durumu
+    @State private var isZoomed: Bool = false
 
     init(depremler: [TurkiyeDepremModel]) {
         _viewModel = StateObject(
@@ -47,7 +48,7 @@ struct MapEarthquakeView: View {
     }
 
     private func markerSize(count: Int) -> CGFloat {
-        return CGFloat(12 + (count != 1 ? 18 : 12))
+        return CGFloat(12 + (count != 1 ? 18 : (isZoomed ? 12 : 4)))
     }
 
     var body: some View {
@@ -62,8 +63,7 @@ struct MapEarthquakeView: View {
                                         ? EarchquakeUtils.earthquakeSizeColor(
                                             cluster.depremler[0].buyukluk)
                                         : AppColors.primaryColor
-                                )
-                                .frame(
+                                ).frame(
                                     width: markerSize(
                                         count: cluster.depremler.count),
                                     height: markerSize(
@@ -71,8 +71,7 @@ struct MapEarthquakeView: View {
                                 )
                                 .overlay(
                                     Circle()
-                                        .stroke(Color.white, lineWidth: 1)
-                                )
+                                        .stroke(Color.white, lineWidth: 1))
 
                             if cluster.depremler.count > 1 {
                                 Text("\(cluster.depremler.count)")
@@ -86,7 +85,6 @@ struct MapEarthquakeView: View {
                             if cluster.depremler.count == 1 {
                                 selectedDeprem = cluster.depremler.first
                                 showingDetail = true
-
                             }
                         }
                     }
@@ -95,6 +93,15 @@ struct MapEarthquakeView: View {
             .onMapCameraChange(frequency: .onEnd) { context in
                 visibleRegion = context.region
                 viewModel.updateClusters(in: context.region)
+                let latDelta = visibleRegion?.span.latitudeDelta.magnitude
+                let lonDelta = visibleRegion?.span.longitudeDelta.magnitude
+                if let latDelta = latDelta, let lonDelta = lonDelta {
+                    if latDelta < 3 && lonDelta < 3 {
+                        isZoomed = true
+                    } else {
+                        isZoomed = false
+                    }
+                }
             }
             .edgesIgnoringSafeArea(.all)
             ZStack(alignment: .center) {
