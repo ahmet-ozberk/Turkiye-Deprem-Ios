@@ -24,7 +24,7 @@ struct Turkiye_DepremApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView().colorScheme(.light)
         }
     }
 }
